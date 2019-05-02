@@ -6,6 +6,7 @@ import org.springframework.util.StringUtils;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
 import java.util.Properties;
 
@@ -15,7 +16,9 @@ import java.util.Properties;
 public class ConfigUtils {
 
     private static Logger logger = LoggerFactory.getLogger(ConfigUtils.class);
-    // 配置文件的路径
+    /**
+     * 配置文件路径
+     */
     private static final String CONFIG_NAME = "conf/config.properties";
     private static Properties ps;
 
@@ -26,21 +29,16 @@ public class ConfigUtils {
 
     public static String getString(String key) {
         String value = getValue(key);
-        try {
-            return new String(value.getBytes("GBK"),"utf-8");
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-        }
-        return "";
+        return value;
     }
 
     private static String getValue(String key) {
         if (ps == null) {
             init();
         }
-        String value = null;
+        String value = ps.getProperty(key);
         if (StringUtils.isEmpty(value)) {
-            value = ps.getProperty(key);
+            value = "";
         }
         logger.info("key:"+key+"----value:"+value);
         return value;
@@ -48,9 +46,8 @@ public class ConfigUtils {
 
     private static synchronized void init() {
         try {
-            InputStream ras = ConfigUtils.class.getClassLoader().getResourceAsStream(CONFIG_NAME);
             ps = new Properties();
-            ps.load(ras);
+            ps.load(new InputStreamReader(ConfigUtils.class.getClassLoader().getResourceAsStream(CONFIG_NAME), "UTF-8"));
         } catch (IOException e) {
             e.printStackTrace();
         }
