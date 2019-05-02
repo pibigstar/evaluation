@@ -1,25 +1,25 @@
-#####Ê¹ÓÃÄÄ¸ö»·¾³ prodÉú³É»·¾³  dev¿ª·¢»·¾³########
+#####ä½¿ç”¨å“ªä¸ªç¯å¢ƒ prodç”Ÿæˆç¯å¢ƒ  devå¼€å‘ç¯å¢ƒ########
 spring:
   profiles:
     active: dev
-  ##########¹«¹²ÅäÖÃ##########
+  ##########å…¬å…±é…ç½®##########
   jpa:
     show-sql: false
     hibernate:
       ddl-auto: update
     database: mysql
-  ########## ¾²Ì¬×ÊÔ´·ÃÎÊÅäÖÃ ###########
+  ########## é™æ€èµ„æºè®¿é—®é…ç½® ###########
   mvc:
     static-path-pattern: /**
   resources:
     static-locations: classpath:/static/
 
   thymeleaf:
-    cache: false #¿ªÆôÄ£°åÈÈ²¿Êğ
-    mode: HTML #²»Ğ£Ñéhtml±êÇ©,ĞèÒª¼ÓÈëjar°ü net.sourceforge.nekohtml
+    cache: false #å¼€å¯æ¨¡æ¿çƒ­éƒ¨ç½²
+    mode: HTML #ä¸æ ¡éªŒhtmlæ ‡ç­¾,éœ€è¦åŠ å…¥jaråŒ… net.sourceforge.nekohtml
 
-########### Mybatis ÅäÖÃ  ################
+########### Mybatis é…ç½®  ################
 mybatis:
-  type-aliases-package: com.pibigstar.parsevip.domain # ÊµÌåÉ¨ÃèÂ·¾¶
+  type-aliases-package: com.pibigstar.parsevip.domain # å®ä½“æ‰«æè·¯å¾„
   configuration:
-    map-underscore-to-camel-case: true #¿ªÆôÍÕ·åÃüÃû
+    map-underscore-to-camel-case: true #å¼€å¯é©¼å³°å‘½å

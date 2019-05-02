@@ -27,7 +27,7 @@ public class ConfigUtils {
     public static String getString(String key) {
         String value = getValue(key);
         try {
-            return new String(value.getBytes("iso-8859-1"),"utf-8");
+            return new String(value.getBytes("GBK"),"utf-8");
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }

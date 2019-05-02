@@ -4,11 +4,14 @@ server:
   port: 8080
 
 spring:
-  datasource:
-    driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://127.0.0.1:3306/evaluation?useUnicode=true&characterEncoding=utf-8&useSSL=false
-    data-username: root
-    data-password: 123456
+  druid:
+    datasource:
+      #数据库连接地址
+      url: jdbc:mysql://127.0.0.1:3306/evaluation?useUnicode=true&allowMultiQueries=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai&useSSL=false
+      #用户名
+      username: root
+      #密码
+      password: 123456
   ######### 热部署配置 #############
   devtools:
     restart:
