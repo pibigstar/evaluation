@@ -6,6 +6,5 @@ import java.lang.annotation.*;
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
 public @interface MyLogger {
-
-	public String description();
+	String description() default "";
 }
